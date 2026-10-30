@@ -1,3 +1,5 @@
+
+
 name = "darmangar-api-starter"
 main = "worker.js"
 compatibility_date = "2026-10-29"
@@ -5,5 +7,4 @@ compatibility_date = "2026-10-29"
 [[d1_databases]]
 binding = "DB"
 database_name = "darmangar-db"
-# جایگزین شود: شناسه واقعی D1 از داشبورد Cloudflare
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "c16d7ef2-b9b1-47e1-b758-22dbe587828a"
