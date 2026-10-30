@@ -132,8 +132,11 @@ BEGIN
       THEN RAISE(ABORT, 'request_not_open')
     WHEN (SELECT offer_count FROM service_requests WHERE id = NEW.request_id) >= 5
       THEN RAISE(ABORT, 'offer_limit_reached')
-    WHEN (SELECT verification_status FROM provider_profiles WHERE user_id = NEW.provider_user_id) <> 'approved'
-      THEN RAISE(ABORT, 'provider_not_approved')
+    WHEN NOT EXISTS (
+  SELECT 1 FROM provider_profiles
+  WHERE user_id = NEW.provider_user_id
+    AND verification_status = 'approved'
+) THEN RAISE(ABORT, 'provider_not_approved')
     WHEN NOT EXISTS (
       SELECT 1 FROM provider_services ps
       WHERE ps.provider_user_id = NEW.provider_user_id
