@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f83">
+<title>درمان‌گر | خدمات سلامت</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial;background:#f2f8f8;color:#183638}
+header{background:#087f83;color:white;padding:30px 20px;text-align:center}
+.logo{font-size:35px;font-weight:bold}
+header p{font-size:14px;line-height:2}
+main{max-width:520px;margin:35px auto;padding:18px}
+h2{text-align:center;font-size:20px}
+.choice{display:block;width:100%;padding:24px 15px;margin:18px 0;border:1px solid #c9e3e2;border-radius:17px;background:white;text-align:center;color:#087f83;font-size:18px;font-weight:bold;cursor:pointer}
+.choice span{display:block;font-size:13px;color:#637b7b;margin-top:12px;font-weight:normal}
+.panel{display:none;background:white;padding:20px;border-radius:16px;margin-top:20px}
+input,select,textarea{width:100%;padding:13px;margin:9px 0;border:1px solid #cbdada;border-radius:9px;font:14px Tahoma}
+button.submit{width:100%;padding:14px;border:0;border-radius:10px;background:#087f83;color:white;font:16px Tahoma}
+.back{background:#e6f2f1;color:#087f83;border:0;padding:10px 15px;border-radius:8px}
+footer{text-align:center;color:#789090;font-size:12px;margin:35px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">درمان‌گر</div>
+<p>مراقبت و خدمات سلامت نزدیک خانه شما</p>
+</header>
+<main>
+<section id="home">
+<h2>به درمان‌گر خوش آمدید</h2>
+<p style="text-align:center">برای ادامه، نوع ورود خود را انتخاب کنید</p>
+<button class="choice" onclick="show('requester')">
+ورود درخواست‌کنندگان خدمات درمانی و سلامت
+<span>ثبت درخواست و دریافت پیشنهاد از ارائه‌دهندگان</span>
+</button>
+<button class="choice" onclick="show('provider')">
+ورود ارائه‌دهندگان خدمات درمانی و سلامت
+<span>ثبت‌نام و ارائه خدمات تخصصی سلامت</span>
+</button>
+</section>
+
+<section id="requester" class="panel">
+<button class="back" onclick="back()">بازگشت</button>
+<h2>ورود درخواست‌کننده</h2>
+<form onsubmit="demo(event)">
+<input placeholder="نام کاربری" required>
+<input type="password" placeholder="رمز عبور" required>
+<button class="submit">ورود</button>
+</form>
+</section>
+
+<section id="provider" class="panel">
+<button class="back" onclick="back()">بازگشت</button>
+<h2>ورود ارائه‌دهنده خدمات</h2>
+<form onsubmit="demo(event)">
+<input placeholder="نام کاربری" required>
+<input type="password" placeholder="رمز عبور" required>
+<button class="submit">ورود</button>
+</form>
+</section>
+</main>
+<footer>درمان‌گر © خدمات سلامت و مراقبت در منزل</footer>
+<script>
+function show(id){
+document.getElementById('home').style.display='none';
+document.getElementById(id).style.display='block';
+}
+function back(){
+document.getElementById('home').style.display='block';
+document.getElementById('requester').style.display='none';
+document.getElementById('provider').style.display='none';
+}
+function demo(e){
+e.preventDefault();
+alert('اتصال به سامانه ورود در مرحله بعد تکمیل می‌شود.');
+}
+</script>
+</body>
+</html>
